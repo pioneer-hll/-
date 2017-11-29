@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	 <div id="calculate">
+        <input type="text"><br>
+        <select>
+            <option value="1">加</option>
+            <option value="2">减</option>
+            <option value="3">乘</option>
+            <option value="4">除</option>
+            <option value="5">取余</option>
+        </select><br>
+        <input type="text"><br>
+        <input type="button" value="计算"><br>
+        <div></div>
+    </div>
+    <script>
+    	
+   var container = document.getElementById('calculate');
+   var btn =  container.getElementsByTagName('input')[2];
+   var A =  container.getElementsByTagName('input')[0];
+   var B =  container.getElementsByTagName('input')[1];
+   var F =  container.getElementsByTagName('select')[0];
+   var R =  container.getElementsByTagName('div')[0];
+
+    var sum = function(a,b){
+        return parseInt(a) + parseInt(b);
+    }
+    var abstract = function(a,b){
+        return parseInt(a) - parseInt(b);
+    }
+    var multiply = function(a,b){
+        return parseInt(a) * parseInt(b);
+    }
+    var divide = function(a,b){
+        return parseInt(a) / parseInt(b);
+    }
+    var mod = function(a,b){
+        return parseInt(a) % parseInt(b);
+    }
+   
+        btn.onclick = function() {
+            // 事件方法中的this指向绑定事件的对象
+            var a = A.value;
+            var b = B.value;
+            var flag = F.value;
+            var result = 0;
+            switch (parseInt(flag)) {
+                case 1:
+                    result = sum(a, b);
+                    break;
+                case 2:
+                    result = abstract(a, b);
+                    break;
+                case 3:
+                    result = multiply(a, b);
+                    break;
+                case 4:
+                    result = divide(a, b);
+                    break;
+                case 5:
+                    result = mod(a, b);
+                    break;
+            }
+            console.log(result);
+            R.innerHTML = result;
+        }
+
+
+
+    </script>
+</body>
+</html>

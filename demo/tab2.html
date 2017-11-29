@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+     #tab div img{
+            width: 300px;
+            height: 200px;
+        }
+    #tab div{
+        display: none;
+    }
+	</style>
+</head>
+<body>
+	<div id="tab">
+        <input type="button" value="苹果">
+        <input type="button" value="香蕉">
+        <input type="button" value="橘子">
+        <div><img src="./img/apple.jpg"></div>
+        <div><img src="./img/banana.jpg"></div>
+        <div><img src="./img/orange.jpg"></div>
+    </div>
+    <script>
+    	
+    function Tab(cId) {
+        this.container = document.getElementById(cId);
+        this.aInput = this.container.getElementsByTagName('input');
+        this.aDiv = this.container.getElementsByTagName('div');
+    }
+
+    Tab.prototype.init = function() {
+        this.aInput[0].style.backgroundColor = 'orange';
+        this.aDiv[0].style.display = 'block';
+
+        var that = this;
+        for (var i = 0; i < this.aInput.length; i++) {
+            this.aInput[i].index = i;
+            this.aInput[i].onclick = function() {
+                // 这里的this指的是当前点击的按钮
+                that.change(this);
+            }
+        }
+    }
+
+    Tab.prototype.change = function(obj) {
+        for (var j = 0; j < this.aInput.length; j++) {
+            this.aInput[j].style.backgroundColor = '';
+            this.aDiv[j].style.display = 'none';
+        }
+        obj.style.backgroundColor = 'orange';
+        this.aDiv[obj.index].style.display = 'block';
+    }
+
+    var tab = new Tab('tab');
+    tab.init();
+    </script>
+</body>
+</html>

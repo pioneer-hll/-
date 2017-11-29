@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>seajs综合案例</title>
+    <style type="text/css">
+    html,
+    body,
+    div,
+    p {
+        padding: 0px;
+        margin: 0px;
+    }
+    
+    #container {
+        width: 1000px;
+        margin: auto;
+    }
+    
+    #header {
+        height: 50px;
+        background: lightblue;
+    }
+    
+    #main {}
+    
+    #left {
+        width: 700px;
+        float: left;
+        min-height: 800px;
+        background: #FDE8E0;
+    }
+    
+    #right {
+        width: 300px;
+        float: right;
+        min-height: 800px;
+        background: gray;
+    }
+    
+    #footer {
+        height: 360px;
+        background: lightgray;
+    }
+    
+    #clear {
+        clear: both;
+        line-height: 0;
+    }
+    
+    #upArea {
+        height: 280px;
+        background: blue;
+    }
+    
+    #downArea {
+        height: 380px;
+        background: green;
+        width: 300px;
+    }
+    #tab div img{
+        width: 300px;
+        height: 200px;
+    }
+    #tab div{
+        display: none;
+    }
+    #drag{
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        position: absolute;
+        cursor: pointer;
+    }
+
+    </style>
+    <script type="text/javascript" src="./sea.js"></script>
+    <script type="text/javascript">
+    seajs.use('./main.js', function(main) {
+    	main.showLog();
+    });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header">header</div>
+        <div id="main">
+            <div id="left">
+                <div id="drag"></div>
+            </div>
+            <div id="right">
+                <div id="upArea">
+                    <div id="calculate">
+                        <input type="text"><br>
+                        <select>
+                            <option value="1">加</option>
+                            <option value="2">减</option>
+                            <option value="3">乘</option>
+                            <option value="4">除</option>
+                            <option value="5">取余</option>
+                        </select><br>
+                        <input type="text"><br>
+                        <input type="button" value="计算"><br>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="downArea">
+                	<div id="tab">
+                        <input type="button" value="苹果">
+                        <input type="button" value="香蕉">
+                        <input type="button" value="橘子">
+                        <div><img src="./img/apple.jpg"></div>
+                        <div><img src="./img/banana.jpg"></div>
+                        <div><img src="./img/orange.jpg"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="clear"></div>
+        </div>
+        <div id="footer">footer</div>
+    </div>
+</body>
+
+</html>

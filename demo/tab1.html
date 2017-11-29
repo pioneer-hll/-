@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+ #tab div img{
+        width: 300px;
+        height: 200px;
+    }
+    #tab div{
+        display: none;
+    }
+	</style>
+</head>
+<body>
+	<div id="tab">
+        <input type="button" value="苹果">
+        <input type="button" value="香蕉">
+        <input type="button" value="橘子">
+        <div><img src="./img/apple.jpg"></div>
+        <div><img src="./img/banana.jpg"></div>
+        <div><img src="./img/orange.jpg"></div>
+    </div>
+    <script>
+    	
+
+        var container = document.getElementById("tab");
+        var aInput = container.getElementsByTagName('input');
+        var aDiv = container.getElementsByTagName('div');
+
+        function init(){
+            aInput[0].style.backgroundColor = 'orange';
+            aDiv[0].style.display = 'block';
+
+            for (var i = 0; i < aInput.length; i++) {
+            aInput[i].onclick = (function(t){
+                    return change.bind(null,t)
+                })(i)
+            }
+        }
+ 
+
+          function change(t) {
+            for (var j = 0; j < aInput.length; j++) {
+                aInput[j].style.backgroundColor = '';
+                aDiv[j].style.display = 'none';
+            }
+            aInput[t].style.backgroundColor = 'orange';
+            aDiv[t].style.display = 'block';
+        }
+
+      init()
+
+    // var tab = new Tab('tab');
+    // tab.init();
+    </script>
+</body>
+</html>
